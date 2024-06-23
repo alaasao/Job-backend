@@ -1,7 +1,7 @@
 {
-  "name": "task_manager_backend",
+  "name": "jobs",
   "version": "1.0.0",
-  "description": "task manager backend using express",
+  "description": "jobs using express",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -17,8 +17,7 @@
     "express-async-errors": "^3.1.1",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.3",
-    "nodemon": "^3.1.4"
+    "mongoose": "^8.4.3"
   },
   "engines": {
     "node": "20.5.1"
