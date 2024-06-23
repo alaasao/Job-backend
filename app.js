@@ -6,7 +6,7 @@ app.use(express.json())
 const xss = require("xss-clean")
 const cors = require("cors")
 const helmet=require("helmet")
-// const rateLimiter=require("express-rate-limit")
+const rateLimiter=require("express-rate-limit")
 require("dotenv/config")
 const jobsRouter = require("./routes/jobs")
 const notFound = require('./middleware/not-found.js')
@@ -14,11 +14,11 @@ const errorHandlerMiddleware = require("./middleware/error-handler")
 const authRouter = require("./routes/auth.js")
 const auth = require("./middleware/authentication.js")
 app.set('trust proxy',1)
-// const limiter = rateLimiter({
-//     windowMs: 15 * 60 * 1000,
-//     max:100
-// })
-// app.use(limiter)
+const limiter = rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max:100
+})
+app.use(limiter)
 app.use(cors())
 app.use(helmet())
 app.use(xss())
