@@ -6,7 +6,7 @@ const helmet = require("helmet")
 const xss = require("xss-clean")
 const cors = require("cors")
 const rateLimiter=require("express-rate-limit")
-require("dotenv").config()
+require("dotenv/config")
 const jobsRouter = require("./routes/jobs")
 const notFound = require('./middleware/not-found.js')
 const errorHandlerMiddleware = require("./middleware/error-handler")
@@ -34,8 +34,8 @@ const connectdB = require("./db/connect")
 const start = async () => {
     try {
         await connectdB(process.env.MONGO_URI)
-        app.listen(process.env.PORT || 3000, function(){
-            console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+        app.listen(process.env.PORT || 3000, ()=>{
+          console.log("app is apping")
           });
     }
     catch (err){
